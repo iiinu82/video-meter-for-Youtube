@@ -23,6 +23,7 @@ textarea {
 .movieArea input {
   margin: 5px;
 }
+
 .movieScreen {
   width: 100%;
   height: 36vh;
@@ -52,6 +53,50 @@ textarea {
 }
 .seekBar input {
   width: 100%;
+}
+
+.seekBar span {
+  color: #6f646b;
+  font-variant-numeric: tabular-nums;
+}
+
+/* range スライダーの配色（水色ベース） */
+.seekBar input[type="range"] {
+  -webkit-appearance: none;
+  appearance: none;
+  background: transparent;
+}
+
+.seekBar input[type="range"]::-webkit-slider-runnable-track {
+  height: 4px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, #2db3f6 0%, #cdeaf8 100%);
+}
+
+.seekBar input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 16px;
+  height: 16px;
+  margin-top: -6px;
+  border-radius: 50%;
+  background: #ffffff;
+  border: 2px solid #2db3f6;
+  box-shadow: 0 2px 6px rgba(45, 179, 246, 0.35);
+}
+
+.seekBar input[type="range"]::-moz-range-track {
+  height: 4px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, #2db3f6 0%, #cdeaf8 100%);
+}
+
+.seekBar input[type="range"]::-moz-range-thumb {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: #ffffff;
+  border: 2px solid #2db3f6;
 }
 
 .playPauseButton {
@@ -108,7 +153,7 @@ textarea {
   height: 30px;
   font-size: 12px;
   font-weight: bold;
-  color: #ffffff;
+  color: #2db3f6;
   background-color: #cdeaf8;
   border-radius: 5px;
   border: 1px solid #ffffff;
@@ -118,8 +163,8 @@ textarea {
   height: 30px;
   font-size: 14px;
   font-weight: bold;
-  color: #2db3f6;
-  background-color: #cdeaf8;
+  color: #ffffff;
+  background-color: #2db3f6;
   border-radius: 5px;
   border: 2px solid #2db3f6;
 }
@@ -130,7 +175,7 @@ textarea {
   border-radius: 50%;
   border: 2px solid #ffb2c4;
   background-color: #fffefe;
-  color: white;
+  color: #3a3238;
   font-size: 20px;
   display: flex;
   justify-content: center;
@@ -139,14 +184,16 @@ textarea {
   margin-left: 5px;
 }
 
+/* タイムエリア：水色の枠で統一 */
 .timeArea {
   margin: 15px 10px;
   display: flex;
   flex-direction: column;
   align-items: center;
   padding: 12px;
-  border: 1px solid #aeadad;
+  border: 1px solid #cdeaf8;
   border-radius: 5px;
+  background-color: #fafdff;
 }
 
 .startTime,
@@ -168,24 +215,37 @@ textarea {
   font-size: 16px;
   width: 65px;
   height: 30px;
+  color: #3a3238;
+  background-color: #f6f9ff;
+  border: 1px solid #b9d0fe;
+  border-radius: 5px;
+  text-align: center;
+  outline: none;
 }
 
 .startTime input.inputScore,
 .endTime input.inputScore {
   font-size: 14px;
   width: 90px;
+  text-align: right;
+}
+
+.startTime input.inputScore:focus,
+.endTime input.inputScore:focus {
+  border-color: #2db3f6;
 }
 
 .bottomArea {
   width: 100%;
   display: flex;
-  justify-content: center;
+  justify-content: start;
+  margin-left: 50px;
   gap: 20px;
 }
 
 .leftBottomArea {
   width: 80px;
-  border: 1px solid #ccc;
+  border: 1px solid #b9d0fe;
   border-radius: 5px;
   padding: 5px;
 
@@ -193,12 +253,18 @@ textarea {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  background-color: #f6f9ff;
+}
+
+.rightBottomArea {
+  width: 210px;
 }
 
 .freeCount {
   font-size: 12px;
   font-weight: bold;
   margin-bottom: 3px;
+  color: #2db3f6;
 }
 
 .leftBottomArea button {
@@ -213,12 +279,15 @@ textarea {
   border: 3px solid #b9d0fe;
   background-color: #f6f9ff;
   border-radius: 5px;
+  color: #3a3238;
+  font-variant-numeric: tabular-nums;
 }
 
 .leftBottomArea .resetButton {
   font-size: 10px;
-  border: 1px solid #444;
-  background-color: #ededed;
+  border: 1px solid #cdeaf8;
+  background-color: #ffffff;
+  color: #6f646b;
   width: 60px;
   height: 25px;
 }
@@ -227,7 +296,7 @@ textarea {
   width: 100%;
   height: 30px;
   display: flex;
-  justify-content: center;
+  justify-content: start;
   align-items: center;
   gap: 20px;
 }
@@ -235,10 +304,13 @@ textarea {
 .elapsedTime {
   font-size: 16px;
   font-weight: bold;
+  color: #3a3238;
+  font-variant-numeric: tabular-nums;
 }
 
 .elapsed-score .fs-12 {
   font-size: 12px;
+  color: #2db3f6;
 }
 
 .score {
@@ -247,6 +319,12 @@ textarea {
   display: flex;
   align-items: center;
   font-weight: bold;
+  color: #3a3238;
+  font-variant-numeric: tabular-nums;
+}
+
+.score .score {
+  color: #ff996f;
 }
 
 .score input {
@@ -263,21 +341,26 @@ textarea {
 .scorePerMinute {
   font-size: 20px;
   font-weight: bold;
+  color: #ff996f;
+  font-variant-numeric: tabular-nums;
 }
 
 .pick,
 .move {
   width: 52px;
   height: 30px;
+  border-radius: 5px;
 }
 
 .pick {
-  background-color: #e8e8e8;
-  border-radius: 5px;
+  background-color: #fff3ee;
+  border: 1px solid #ff996f;
+  color: #ff996f;
 }
 .move {
-  background-color: #e8e8e8;
-  border-radius: 5px;
+  background-color: #f6feea;
+  border: 1px solid #89ce21;
+  color: #89ce21;
 }
 
 .memoArea {
@@ -294,11 +377,22 @@ textarea {
 }
 .memoArea .topArea p {
   font-size: 20px;
+  color: #2db3f6;
 }
 
 .memoArea textarea {
   width: 100%;
   height: 80px;
+  background-color: #fafdff;
+  border: 1px solid #cdeaf8;
+  border-radius: 5px;
+  padding: 8px;
+  color: #3a3238;
+  outline: none;
+}
+
+.memoArea textarea:focus {
+  border-color: #2db3f6;
 }
 
 .saveScreen {
@@ -306,7 +400,8 @@ textarea {
   width: 100px;
   height: 35px;
   color: white;
-  background-color: #7d7d7d;
+  background-color: #ffb2c4;
+  border: none;
   border-radius: 5px;
   margin-left: 10px;
 }
@@ -336,6 +431,7 @@ textarea {
   border-radius: 10px 10px 0 0;
   position: relative;
   line-height: 1.8;
+  color: #3a3238;
 }
 
 .flexbox {
@@ -347,7 +443,8 @@ textarea {
   font-weight: bold;
   margin-left: 10px;
   font-size: 18px;
-  color: #007d13;
+  color: #89ce21;
+  font-variant-numeric: tabular-nums;
 }
 
 .modalContent button {
@@ -360,7 +457,8 @@ textarea {
   font-size: 22px;
   line-height: 1;
   background-color: white;
-  border: 1px solid #888;
+  color: #6f646b;
+  border: 1px solid #cdeaf8;
   border-radius: 4px;
   cursor: pointer;
 }
@@ -368,12 +466,26 @@ textarea {
 .modalMemo {
   white-space: pre-wrap;
   padding: 5px;
-  border: 1px solid #cbcbcb;
+  border: 1px solid #cdeaf8;
   border-radius: 5px;
+  background-color: #fafdff;
+  color: #3a3238;
 }
 
 .modalMemo p {
   font-size: 12px;
+  color: #2db3f6;
+}
+
+.designToggleButton {
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  padding: 4px 12px;
+  border-radius: 999px;
+  border: 1px solid #cdeaf8;
+  background-color: #ffffff;
+  color: #2db3f6;
+  cursor: pointer;
 }
 
 footer {
@@ -381,5 +493,5 @@ footer {
   justify-content: center;
   font-size: 12px;
   margin-bottom: 5px;
-  color: #868585;
+  color: #6f646b;
 }

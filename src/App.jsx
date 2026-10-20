@@ -1,7 +1,7 @@
 import { useRef, useState, useEffect } from "react";
-import "./App.css";
 
 function App() {
+  const [isAltDesign, setIsAltDesign] = useState(false);
   const playerRef = useRef(null);
   const containerRef = useRef(null);
   const intervalRef = useRef(null);
@@ -24,6 +24,15 @@ function App() {
   const [startScore, setStartScore] = useState("");
   const [endScore, setEndScore] = useState("");
   const [isSeeking, setIsSeeking] = useState(false);
+
+  const handleDesignToggle = () => {
+    const link = document.getElementById("app-stylesheet");
+    if (!link) return;
+
+    const next = !isAltDesign;
+    link.href = next ? "/src/App2.css" : "/src/App.css";
+    setIsAltDesign(next);
+  };
 
   // YouTube URL から動画IDを抽出
   const extractVideoId = (url) => {
@@ -362,6 +371,9 @@ function App() {
       <div className="memoArea">
         <div className="topArea">
           <p>メモ📋️</p>
+          <button className="designToggleButton" onClick={handleDesignToggle}>
+            デザイン変更
+          </button>
         </div>
         <textarea
           value={memo}
