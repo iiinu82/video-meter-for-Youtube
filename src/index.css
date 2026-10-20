@@ -1,0 +1,15 @@
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  min-width: 320px;
+
+  font-family: "Hiragino Maru Gothic ProN", "Hiragino Sans", sans-serif;
+}
