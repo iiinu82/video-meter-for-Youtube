@@ -332,11 +332,11 @@ function App() {
           <div className="rightBottomArea">
             <div className="elapsed-score">
               <div className="elapsedTime">
-                経過時間：
+                <span className="fs-12">経過時間：</span>
                 {endTime >= startTime ? formatTime(endTime - startTime) : "--"}
               </div>
               <div className="score">
-                <span>スコア: </span>
+                <span className="fs-12">スコア: </span>
                 <span className="score">{endScore - startScore}</span>
               </div>
             </div>
@@ -347,7 +347,7 @@ function App() {
                     ? Math.floor(
                         ((endScore - startScore) / (endTime - startTime)) * 60,
                       )
-                    : "0"}{" "}
+                    : "0"}
                   / 分
                 </span>
               </div>

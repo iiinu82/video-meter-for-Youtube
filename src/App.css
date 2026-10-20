@@ -105,7 +105,7 @@ textarea {
 .speedButton {
   width: 40px;
   height: 30px;
-  font-size: 16px;
+  font-size: 14px;
   font-weight: bold;
   color: #ffffff;
   background-color: #cdeaf8;
@@ -236,7 +236,12 @@ textarea {
   font-weight: bold;
 }
 
+.elapsed-score .fs-12 {
+  font-size: 12px;
+}
+
 .score {
+  font-size: 16px;
   height: 30px;
   display: flex;
   align-items: center;
@@ -250,7 +255,6 @@ textarea {
 
 .scorePerMinuteSaveButtonArea {
   margin-top: 5px;
-  width: 80%;
   display: flex;
   justify-content: space-between;
 }
@@ -297,12 +301,13 @@ textarea {
 }
 
 .saveScreen {
-  font-size: 14px;
-  width: 90px;
+  font-size: 13px;
+  width: 100px;
   height: 35px;
   color: white;
   background-color: #7d7d7d;
   border-radius: 5px;
+  margin-left: 10px;
 }
 
 /* モーダル */
