@@ -30,7 +30,7 @@ function App() {
     if (!link) return;
 
     const next = !isAltDesign;
-    link.href = next ? "/src/App2.css" : "/src/App.css";
+    link.href = next ? "/App2.css" : "/App.css";
     setIsAltDesign(next);
   };
 
