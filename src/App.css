@@ -103,9 +103,10 @@ textarea {
 }
 
 .speedButton {
+  text-align: center;
   width: 40px;
   height: 30px;
-  font-size: 14px;
+  font-size: 12px;
   font-weight: bold;
   color: #ffffff;
   background-color: #cdeaf8;
@@ -115,7 +116,7 @@ textarea {
 .speedButton.selected {
   width: 48px;
   height: 30px;
-  font-size: 16px;
+  font-size: 14px;
   font-weight: bold;
   color: #2db3f6;
   background-color: #cdeaf8;
