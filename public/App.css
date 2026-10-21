@@ -26,7 +26,7 @@ textarea {
 
 .movieScreen {
   width: 100%;
-  height: 36vh;
+  height: 32vh;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -184,16 +184,16 @@ textarea {
   margin-left: 5px;
 }
 
-/* タイムエリア：水色の枠で統一 */
+/* タイムエリア */
 .timeArea {
   margin: 15px 10px;
   display: flex;
   flex-direction: column;
   align-items: center;
   padding: 12px;
-  border: 1px solid #cdeaf8;
+  border: 1px solid #e5e5e5;
   border-radius: 5px;
-  background-color: #fafdff;
+  background-color: #ffffff;
 }
 
 .startTime,
@@ -215,9 +215,9 @@ textarea {
   font-size: 16px;
   width: 65px;
   height: 30px;
-  color: #3a3238;
-  background-color: #f6f9ff;
-  border: 1px solid #b9d0fe;
+  color: #333333;
+  background-color: #fafafa;
+  border: 1px solid #e0e0e0;
   border-radius: 5px;
   text-align: center;
   outline: none;
@@ -232,7 +232,7 @@ textarea {
 
 .startTime input.inputScore:focus,
 .endTime input.inputScore:focus {
-  border-color: #2db3f6;
+  border-color: #ff996f;
 }
 
 .bottomArea {
@@ -245,7 +245,7 @@ textarea {
 
 .leftBottomArea {
   width: 80px;
-  border: 1px solid #b9d0fe;
+  border: 1px solid #e5e5e5;
   border-radius: 5px;
   padding: 5px;
 
@@ -253,7 +253,7 @@ textarea {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background-color: #f6f9ff;
+  background-color: #fafafa;
 }
 
 .rightBottomArea {
@@ -264,7 +264,7 @@ textarea {
   font-size: 12px;
   font-weight: bold;
   margin-bottom: 3px;
-  color: #2db3f6;
+  color: #888888;
 }
 
 .leftBottomArea button {
@@ -276,18 +276,18 @@ textarea {
   align-items: center;
   width: 50px;
   height: 40px;
-  border: 3px solid #b9d0fe;
-  background-color: #f6f9ff;
+  border: 1px solid #e0e0e0;
+  background-color: #ffffff;
   border-radius: 5px;
-  color: #3a3238;
+  color: #333333;
   font-variant-numeric: tabular-nums;
 }
 
 .leftBottomArea .resetButton {
   font-size: 10px;
-  border: 1px solid #cdeaf8;
+  border: 1px solid #e0e0e0;
   background-color: #ffffff;
-  color: #6f646b;
+  color: #888888;
   width: 60px;
   height: 25px;
 }
@@ -304,13 +304,13 @@ textarea {
 .elapsedTime {
   font-size: 16px;
   font-weight: bold;
-  color: #3a3238;
+  color: #333333;
   font-variant-numeric: tabular-nums;
 }
 
 .elapsed-score .fs-12 {
   font-size: 12px;
-  color: #2db3f6;
+  color: #888888;
 }
 
 .score {
@@ -319,7 +319,7 @@ textarea {
   display: flex;
   align-items: center;
   font-weight: bold;
-  color: #3a3238;
+  color: #333333;
   font-variant-numeric: tabular-nums;
 }
 
@@ -353,14 +353,14 @@ textarea {
 }
 
 .pick {
-  background-color: #fff3ee;
-  border: 1px solid #ff996f;
-  color: #ff996f;
+  background-color: #ffffff;
+  border: 1px solid #e0e0e0;
+  color: #555555;
 }
 .move {
-  background-color: #f6feea;
-  border: 1px solid #89ce21;
-  color: #89ce21;
+  background-color: #ffffff;
+  border: 1px solid #e0e0e0;
+  color: #555555;
 }
 
 .memoArea {
@@ -377,29 +377,29 @@ textarea {
 }
 .memoArea .topArea p {
   font-size: 20px;
-  color: #2db3f6;
+  color: #555555;
 }
 
 .memoArea textarea {
   width: 100%;
   height: 80px;
-  background-color: #fafdff;
-  border: 1px solid #cdeaf8;
+  background-color: #fafafa;
+  border: 1px solid #e0e0e0;
   border-radius: 5px;
   padding: 8px;
-  color: #3a3238;
+  color: #333333;
   outline: none;
 }
 
 .memoArea textarea:focus {
-  border-color: #2db3f6;
+  border-color: #ff996f;
 }
 
 .saveScreen {
   font-size: 13px;
   width: 100px;
   height: 35px;
-  color: white;
+  color: #ffffff;
   background-color: #ffb2c4;
   border: none;
   border-radius: 5px;
@@ -431,7 +431,7 @@ textarea {
   border-radius: 10px 10px 0 0;
   position: relative;
   line-height: 1.8;
-  color: #3a3238;
+  color: #333333;
 }
 
 .flexbox {
@@ -443,7 +443,7 @@ textarea {
   font-weight: bold;
   margin-left: 10px;
   font-size: 18px;
-  color: #89ce21;
+  color: #ff996f;
   font-variant-numeric: tabular-nums;
 }
 
@@ -457,8 +457,8 @@ textarea {
   font-size: 22px;
   line-height: 1;
   background-color: white;
-  color: #6f646b;
-  border: 1px solid #cdeaf8;
+  color: #888888;
+  border: 1px solid #e0e0e0;
   border-radius: 4px;
   cursor: pointer;
 }
@@ -466,15 +466,15 @@ textarea {
 .modalMemo {
   white-space: pre-wrap;
   padding: 5px;
-  border: 1px solid #cdeaf8;
+  border: 1px solid #e5e5e5;
   border-radius: 5px;
-  background-color: #fafdff;
-  color: #3a3238;
+  background-color: #fafafa;
+  color: #333333;
 }
 
 .modalMemo p {
   font-size: 12px;
-  color: #2db3f6;
+  color: #888888;
 }
 
 .designToggleButton {
@@ -482,9 +482,9 @@ textarea {
   letter-spacing: 0.1em;
   padding: 4px 12px;
   border-radius: 999px;
-  border: 1px solid #cdeaf8;
+  border: 1px solid #e0e0e0;
   background-color: #ffffff;
-  color: #2db3f6;
+  color: #555555;
   cursor: pointer;
 }
 
@@ -493,5 +493,5 @@ footer {
   justify-content: center;
   font-size: 12px;
   margin-bottom: 5px;
-  color: #6f646b;
+  color: #888888;
 }

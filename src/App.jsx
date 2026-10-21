@@ -275,7 +275,9 @@ function App() {
             </button>
           ))}
           <button className="muteButton" onClick={handleMuteToggle}>
-            {isMuted ? "🔇" : "🔊"}
+            <i
+              className={`fa-solid ${isMuted ? "fa-volume-xmark" : "fa-volume-low"}`}
+            ></i>
           </button>
         </div>
       </div>
