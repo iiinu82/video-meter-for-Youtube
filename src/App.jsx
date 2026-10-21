@@ -191,196 +191,209 @@ function App() {
 
   return (
     <>
-      <div className="movieArea">
-        <div
-          className="urlInputArea"
-          style={{ marginBottom: 8, display: "flex", gap: 8 }}
-        >
-          <input
-            type="text"
-            placeholder="YouTubeのURLを貼り付け"
-            value={urlInput}
-            onChange={(e) => setUrlInput(e.target.value)}
-            style={{ flex: 1 }}
-          />
-          <button onClick={handleUrlSubmit}>読み込み</button>
-        </div>
+      <div className="flex">
+        <div className="movieArea">
+          <div
+            className="urlInputArea"
+            style={{ marginBottom: 8, display: "flex", gap: 8 }}
+          >
+            <input
+              type="text"
+              placeholder="YouTubeのURLを貼り付け"
+              value={urlInput}
+              onChange={(e) => setUrlInput(e.target.value)}
+              style={{ flex: 1 }}
+            />
+            <button onClick={handleUrlSubmit}>読み込み</button>
+          </div>
 
-        <div className="movieScreen">
-          <div ref={containerRef} />
-        </div>
+          <div className="movieScreen">
+            <div ref={containerRef} />
+          </div>
 
-        <div className="seekBar">
-          <span>{formatTime(currentTime)}</span>
+          <div className="seekBar">
+            <span>{formatTime(currentTime)}</span>
 
-          <input
-            type="range"
-            min="0"
-            max={duration || 0}
-            value={currentTime}
-            onMouseDown={() => setIsSeeking(true)}
-            onTouchStart={() => setIsSeeking(true)}
-            onMouseUp={() => setIsSeeking(false)}
-            onTouchEnd={() => setIsSeeking(false)}
-            onChange={(e) => {
-              const time = Number(e.target.value);
-              setCurrentTime(time);
-            }}
-            onMouseUpCapture={() => {
-              if (playerRef.current)
-                playerRef.current.seekTo(currentTime, true);
-              setIsSeeking(false);
-            }}
-            onTouchEndCapture={() => {
-              if (playerRef.current)
-                playerRef.current.seekTo(currentTime, true);
-              setIsSeeking(false);
-            }}
-          />
-          <span>{formatTime(duration)}</span>
-        </div>
+            <input
+              type="range"
+              min="0"
+              max={duration || 0}
+              value={currentTime}
+              onMouseDown={() => setIsSeeking(true)}
+              onTouchStart={() => setIsSeeking(true)}
+              onMouseUp={() => setIsSeeking(false)}
+              onTouchEnd={() => setIsSeeking(false)}
+              onChange={(e) => {
+                const time = Number(e.target.value);
+                setCurrentTime(time);
+              }}
+              onMouseUpCapture={() => {
+                if (playerRef.current)
+                  playerRef.current.seekTo(currentTime, true);
+                setIsSeeking(false);
+              }}
+              onTouchEndCapture={() => {
+                if (playerRef.current)
+                  playerRef.current.seekTo(currentTime, true);
+                setIsSeeking(false);
+              }}
+            />
+            <span>{formatTime(duration)}</span>
+          </div>
 
-        <div className="seekButtonArea">
-          <button className="seekButton" onClick={() => handleSeek(-60)}>
-            -60
-          </button>
-          <button className="seekButton" onClick={() => handleSeek(-10)}>
-            -10
-          </button>
-          <button className="seekButton" onClick={() => handleSeek(-3)}>
-            -3
-          </button>
-          <button className="seekButtonF" onClick={() => handleSeek(+3)}>
-            +3
-          </button>
-          <button className="seekButtonF" onClick={() => handleSeek(+10)}>
-            +10
-          </button>
-          <button className="seekButtonF" onClick={() => handleSeek(+60)}>
-            +60
-          </button>
-        </div>
-
-        <div className="speedButtonArea">
-          <button className="playPauseButton" onClick={handlePlayPause}>
-            {isPlaying ? "Ⅱ" : "▶"}
-          </button>
-          {[0.5, 0.75, 1.0, 1.25, 1.5].map((s) => (
-            <button
-              key={s}
-              className={`speedButton ${playbackRate === s ? "selected" : ""}`}
-              onClick={() => handleSpeed(s)}
-            >
-              {s}
+          <div className="seekButtonArea">
+            <button className="seekButton" onClick={() => handleSeek(-60)}>
+              -60
             </button>
-          ))}
-          <button className="muteButton" onClick={handleMuteToggle}>
-            <i
-              className={`fa-solid ${isMuted ? "fa-volume-xmark" : "fa-volume-low"}`}
-            ></i>
-          </button>
-        </div>
-      </div>
-
-      <div className="timeArea">
-        <div className="startTime">
-          <p>🚩</p>
-          <input
-            type="text"
-            name="start"
-            id="start"
-            value={formatTime(startTime)}
-            readOnly
-          />
-          <button className="pick" onClick={handlePickStart}>
-            記録
-          </button>
-          <button className="move" onClick={() => handleMove(startTime)}>
-            移動
-          </button>
-          S
-          <input
-            className="inputScore"
-            type="number"
-            name="startScore"
-            value={startScore}
-            onChange={(e) => setStartScore(e.target.value)}
-            placeholder="0"
-          />
-        </div>
-        <div className="endTime">
-          <p>🏁</p>
-          <input
-            type="text"
-            name="end"
-            id="end"
-            value={formatTime(endTime)}
-            readOnly
-          />
-          <button className="pick" onClick={handlePickEnd}>
-            記録
-          </button>
-          <button className="move" onClick={() => handleMove(endTime)}>
-            移動
-          </button>
-          S
-          <input
-            className="inputScore"
-            type="number"
-            name="endScore"
-            value={endScore}
-            onChange={(e) => setEndScore(e.target.value)}
-          />
-        </div>
-        <div className="bottomArea">
-          <div className="leftBottomArea">
-            <button onClick={() => setCount((c) => c + 1)}>{count}</button>
-            <p className="freeCount">COUNT</p>
-            <button className="resetButton" onClick={() => setCount(0)}>
-              リセット
+            <button className="seekButton" onClick={() => handleSeek(-10)}>
+              -10
+            </button>
+            <button className="seekButton" onClick={() => handleSeek(-3)}>
+              -3
+            </button>
+            <button className="seekButtonF" onClick={() => handleSeek(+3)}>
+              +3
+            </button>
+            <button className="seekButtonF" onClick={() => handleSeek(+10)}>
+              +10
+            </button>
+            <button className="seekButtonF" onClick={() => handleSeek(+60)}>
+              +60
             </button>
           </div>
-          <div className="rightBottomArea">
-            <div className="elapsed-score">
-              <div className="elapsedTime">
-                <span className="fs-12">経過時間：</span>
-                {endTime >= startTime ? formatTime(endTime - startTime) : "--"}
+
+          <div className="speedButtonArea">
+            <button className="playPauseButton" onClick={handlePlayPause}>
+              {isPlaying ? "Ⅱ" : "▶"}
+            </button>
+            {[0.5, 0.75, 1.0, 1.25, 1.5].map((s) => (
+              <button
+                key={s}
+                className={`speedButton ${playbackRate === s ? "selected" : ""}`}
+                onClick={() => handleSpeed(s)}
+              >
+                {s}
+              </button>
+            ))}
+            <button className="muteButton" onClick={handleMuteToggle}>
+              <i
+                className={`fa-solid ${isMuted ? "fa-volume-xmark" : "fa-volume-low"}`}
+              ></i>
+            </button>
+          </div>
+        </div>
+
+        <div>
+          <div className="timeArea">
+            <div className="startTime">
+              <p>🚩</p>
+              <input
+                type="text"
+                name="start"
+                id="start"
+                value={formatTime(startTime)}
+                readOnly
+              />
+              <button className="pick" onClick={handlePickStart}>
+                記録
+              </button>
+              <button className="move" onClick={() => handleMove(startTime)}>
+                移動
+              </button>
+              S
+              <input
+                className="inputScore"
+                type="number"
+                name="startScore"
+                value={startScore}
+                onChange={(e) => setStartScore(e.target.value)}
+                placeholder="0"
+              />
+            </div>
+            <div className="endTime">
+              <p>🏁</p>
+              <input
+                type="text"
+                name="end"
+                id="end"
+                value={formatTime(endTime)}
+                readOnly
+              />
+              <button className="pick" onClick={handlePickEnd}>
+                記録
+              </button>
+              <button className="move" onClick={() => handleMove(endTime)}>
+                移動
+              </button>
+              S
+              <input
+                className="inputScore"
+                type="number"
+                name="endScore"
+                value={endScore}
+                onChange={(e) => setEndScore(e.target.value)}
+              />
+            </div>
+            <div className="bottomArea">
+              <div className="leftBottomArea">
+                <button onClick={() => setCount((c) => c + 1)}>{count}</button>
+                <p className="freeCount">COUNT</p>
+                <button className="resetButton" onClick={() => setCount(0)}>
+                  リセット
+                </button>
               </div>
-              <div className="score">
-                <span className="fs-12">スコア: </span>
-                <span className="score">{endScore - startScore}</span>
+              <div className="rightBottomArea">
+                <div className="elapsed-score">
+                  <div className="elapsedTime">
+                    <span className="fs-12">経過時間：</span>
+                    {endTime >= startTime
+                      ? formatTime(endTime - startTime)
+                      : "--"}
+                  </div>
+                  <div className="score">
+                    <span className="fs-12">スコア: </span>
+                    <span className="score">{endScore - startScore}</span>
+                  </div>
+                </div>
+                <div className="scorePerMinuteSaveButtonArea">
+                  <div className="scorePerMinute">
+                    <span>
+                      {endTime > startTime
+                        ? Math.floor(
+                            ((endScore - startScore) / (endTime - startTime)) *
+                              60,
+                          )
+                        : "0"}
+                      / 分
+                    </span>
+                  </div>
+                  <button
+                    className="saveScreen"
+                    onClick={() => setShowModal(true)}
+                  >
+                    保存用画面
+                  </button>
+                </div>
               </div>
             </div>
-            <div className="scorePerMinuteSaveButtonArea">
-              <div className="scorePerMinute">
-                <span>
-                  {endTime > startTime
-                    ? Math.floor(
-                        ((endScore - startScore) / (endTime - startTime)) * 60,
-                      )
-                    : "0"}
-                  / 分
-                </span>
-              </div>
-              <button className="saveScreen" onClick={() => setShowModal(true)}>
-                保存用画面
+          </div>
+
+          <div className="memoArea">
+            <div className="topArea">
+              <p>メモ📋️</p>
+              <button
+                className="designToggleButton"
+                onClick={handleDesignToggle}
+              >
+                デザイン変更
               </button>
             </div>
+            <textarea
+              value={memo}
+              onChange={(e) => setMemo(e.target.value)}
+            ></textarea>
           </div>
         </div>
-      </div>
-
-      <div className="memoArea">
-        <div className="topArea">
-          <p>メモ📋️</p>
-          <button className="designToggleButton" onClick={handleDesignToggle}>
-            デザイン変更
-          </button>
-        </div>
-        <textarea
-          value={memo}
-          onChange={(e) => setMemo(e.target.value)}
-        ></textarea>
       </div>
 
       {showModal && (
